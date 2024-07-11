@@ -1,31 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>AdministradorA</title>
-    <link rel="icon" href="./img/minecraft.png" type="image/x-icon">
-    <script>
-        function updateAdminMessage(message) {
-            fetch('https://infinitzu.github.io/Pichompolis/update_message.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ adminMessage: message })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Respuesta del servidor:', data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración Pichompolis</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .admin-container {
+      background-color: #63014a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      color: white;
+    }
+    .admin-container h1 {
+      color: #ffd000;
+    }
+    .admin-container input[type="text"], .admin-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    .admin-container button {
+      background-color: #ffd000;
+      color: #63014a;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <h1>Panel de Administración</h1>
-    <textarea id="adminMessage" rows="4" cols="50"></textarea><br><br>
-    <button onclick="updateAdminMessage(document.getElementById('adminMessage').value)">Actualizar Mensaje</button>
+  <div class="admin-container">
+    <h1>Actualizar Mensaje del Administrador</h1>
+    <form id="adminForm">
+      <textarea id="adminMessageInput" rows="4" placeholder="Ingrese el mensaje del administrador..."></textarea>
+      <button type="submit">Actualizar Mensaje</button>
+    </form>
+    <p id="statusMessage"></p>
+  </div>
+
+  <script>
+    document.getElementById('adminForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const newMessage = document.getElementById('adminMessageInput').value;
+      updateAdminMessage(newMessage);
+    });
+
+    function updateAdminMessage(message) {
+      fetch('https://mi-servidor-php.com/update_message.php', {  // Actualiza esta URL
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ adminMessage: message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('statusMessage').innerText = data.message;
+      })
+      .catch(error => {
+        document.getElementById('statusMessage').innerText = 'Error actualizando el mensaje';
+        console.error('Error:', error);
+      });
+    }
+  </script>
 </body>
 </html>
