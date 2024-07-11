@@ -163,6 +163,7 @@ body {
   }
 
   .inicio {
+    margin-top: 50px
     width: 220px; /* Tamaño ajustado para móviles */
     height: 220px; /* Ajusta la altura para mantener la proporción */
   }
