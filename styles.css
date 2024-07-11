@@ -171,20 +171,3 @@ body {
     font-size: 18px; /* Ajusta el tamaño del texto para móviles */
   }
 }
-
-@media (max-width: 480px) {
-  .menu-container {
-    width: 100%; /* Ajusta el ancho para dispositivos móviles */
-    padding: 10px; /* Reduce el padding para móviles */
-  }
-
-  .inicio {
-    width: 180px; /* Tamaño ajustado para móviles */
-    height: 180px; /* Ajusta la altura para mantener la proporción */
-  }
-
-  .arriba, .abajo {
-    font-size: 16px; /* Ajusta el tamaño del texto para móviles */
-    padding: 8px; /* Reduce el padding de los botones */
-  }
-}
