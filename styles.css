@@ -155,6 +155,7 @@ body {
 .download-link:hover {
   text-decoration: underline; /* Subrayado al pasar el ratón */
 }
+/* Media query para dispositivos móviles */
 @media (max-width: 768px) {
   .menu-container {
     width: 90%; /* Ajusta el ancho para dispositivos móviles */
@@ -162,11 +163,28 @@ body {
   }
 
   .inicio {
-    width: 150px; /* Tamaño ajustado para móviles */
-    height: 150px; /* Ajusta la altura para mantener la proporción */
+    width: 220px; /* Tamaño ajustado para móviles */
+    height: 220px; /* Ajusta la altura para mantener la proporción */
   }
 
   .arriba, .abajo {
     font-size: 18px; /* Ajusta el tamaño del texto para móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-container {
+    width: 100%; /* Ajusta el ancho para dispositivos móviles */
+    padding: 10px; /* Reduce el padding para móviles */
+  }
+
+  .inicio {
+    width: 180px; /* Tamaño ajustado para móviles */
+    height: 180px; /* Ajusta la altura para mantener la proporción */
+  }
+
+  .arriba, .abajo {
+    font-size: 16px; /* Ajusta el tamaño del texto para móviles */
+    padding: 8px; /* Reduce el padding de los botones */
   }
 }
