@@ -158,8 +158,9 @@ body {
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
   .menu-container {
-    width: 90%; /* Ajusta el ancho para dispositivos móviles */
+    width: 100%; /* Ajusta el ancho para dispositivos móviles */
     height: auto; /* Ajusta la altura para móviles */
+    padding: 10px;
   }
 
   .inicio {
