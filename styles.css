@@ -163,10 +163,9 @@ body {
   }
 
   .inicio {
-    position: absolute; /* Posiciona la imagen de forma absoluta */
-    top: 20px; /* Distancia desde el borde superior */
     width: 220px; /* Tamaño ajustado para móviles */
     height: 220px; /* Ajusta la altura para mantener la proporción */
+    margin-top: 25%; /* Aumenta el margen superior para desplazar hacia abajo */
   }
 
   .arriba, .abajo {
