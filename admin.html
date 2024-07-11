@@ -25,7 +25,7 @@
     .admin-container h1 {
       color: #ffd000;
     }
-    .admin-container input[type="text"], .admin-container textarea {
+    .admin-container textarea {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
@@ -61,7 +61,7 @@
     });
 
     function updateAdminMessage(message) {
-      fetch('https://mi-servidor-php.com/update_message.php', {  // Actualiza esta URL
+      fetch('https://tu-servidor-php.com/update_message.php', {  // Actualiza esta URL con tu servidor PHP
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
