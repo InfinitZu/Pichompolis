@@ -165,6 +165,7 @@ body {
   .inicio {
     width: 220px; /* Tamaño ajustado para móviles */
     height: 220px; /* Ajusta la altura para mantener la proporción */
+    transform: translateX(-50%); /* Corrige la posición centrada */
   }
 
   .arriba, .abajo {
