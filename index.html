@@ -206,6 +206,14 @@
       document.getElementById('overlay').style.display = 'block';
     });
 
+    // Evento para detener el sonido al salir del hover sobre los elementos
+    document.querySelectorAll('.arriba, .abajo').forEach(item => {
+      item.addEventListener('mouseleave', function () {
+        var sound = document.getElementById('sound');
+        sound.pause();
+        sound.currentTime = 0;
+      });
+    });
     // Eventos para reproducir sonido al hacer hover sobre los elementos
     document.getElementById('btnInicio').addEventListener('mouseenter', function () {
       playSound();
@@ -225,16 +233,25 @@
       playSound();
     });
 
-    // Evento para detener el sonido al salir del hover sobre los elementos
-    document.querySelectorAll('.arriba, .abajo').forEach(item => {
-      item.addEventListener('mouseleave', function () {
-        var sound = document.getElementById('sound');
-        sound.pause();
-        sound.currentTime = 0;
-      });
-    });
+    
+
+  // Función para cargar el mensaje del administrador
+  function loadAdminMessage() {
+        fetch('message.json')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('adminMessage').innerText = data.adminMessage;
+          })
+          .catch(error => console.error('Error al cargar el mensaje del administrador:', error));
+      }
+
+      // Llama a la función para cargar el mensaje del administrador cuando se carga la página
+      document.addEventListener('DOMContentLoaded', loadAdminMessage);
+
 
   </script>
+
+  
 </body>
 
 </html>
