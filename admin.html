@@ -62,22 +62,22 @@
     });
 
     function updateAdminMessage(message) {
-      fetch('https://tu-servidor-php.com/update_message.php', {  // Actualiza esta URL con tu servidor PHP
+    fetch('https://tu-servidor-php.com/update_message.php', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ adminMessage: message })
-      })
-      .then(response => response.json())
-      .then(data => {
+    })
+    .then(response => response.json())
+    .then(data => {
         document.getElementById('statusMessage').innerText = data.message;
-      })
-      .catch(error => {
+    })
+    .catch(error => {
         document.getElementById('statusMessage').innerText = 'Error actualizando el mensaje';
         console.error('Error:', error);
-      });
-    }
+    });
+}
   </script>
 </body>
 </html>
