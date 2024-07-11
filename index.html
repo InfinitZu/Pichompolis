@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pichompolis</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="./img/minecraft.png" type="image/x-icon">
+  <style>
+    /* Otros estilos para la lista */
+    .list-group {
+      list-style: none;
+      padding: 0;
+    }
+
+    p {
+      text-align: justify;
+      /* Corregido a 'justify' en lugar de 'jus' */
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+
+    .list-group-item {
+      padding: 10px;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      border-bottom: 1px solid #ffd000;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .list-group-item:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      color: #ffd000;
+      text-align: center;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .admin {
+      background-color: #63014a;
+      width: 70%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom-right-radius: 25px;
+      border-bottom-left-radius: 25px;
+    }
+    .admin h1 {
+      color: #ffd000;
+      text-align: center;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="menu">
+    <div class="admin">
+      <h1 id="adminMessage">"Mensaje del administrador"</h1>
+    </div>
+    <!-- Contenedor principal del menú -->
+    <div class="menu-container">
+      <div class="inicio" id="btnInicio">
+        <img src="./img/1261d812-af89-49cc-9f9d-c3a882729535.jpg" alt="">
+      </div>
+      <div class="derecha">
+        <div class="arriba" id="btnIP"><span
+            onclick="copyToClipboard('Pichompolis.aternos.me')">Pichompolis.aternos.me</span></div>
+        <div class="arriba" id="btnDescargas">Descargas</div>
+        <div class="abajo" id="btnDiscord">Discord del Servidor</div>
+        <div class="abajo" id="btnNormas">Normas del Servidor</div>
+      </div>
+    </div>
+
+    <!-- Contenedor para la superposición negra transparente -->
+    <div class="overlay" id="overlay">
+      <!-- Botón "X" para cerrar la superposición -->
+      <button class="close-btn" onclick="closeOverlay()">X</button>
+      <!-- Contenido dinámico que se mostrará al hacer clic en los botones -->
+      <div class="overlay-content" id="overlayContent">
+        Contenido aquí
+      </div>
+    </div>
+
+    <!-- Elemento de audio para reproducir sonido -->
+    <audio id="sound">
+      <source src="./movement-swipe-whoosh-3-186577.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+  </div>
+
+  <script>
+    // Función para cerrar la superposición
+    function closeOverlay() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    // Función para copiar texto al portapapeles
+    function copyToClipboard(text) {
+      var tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      alert('¡Dirección IP copiada al portapapeles!');
+    }
+
+    // Función para reproducir el sonido
+    function playSound() {
+      var sound = document.getElementById('sound');
+      sound.play();
+    }
+
+    // JavaScript para manejar el clic en el botón "Inicio"
+    document.getElementById('btnInicio').addEventListener('click', function () {
+      document.getElementById('overlayContent').innerHTML = `
+        <h2>Bienvenido a Pichompolis</h2>
+        <p>Esperamos que disfrutes tu estadía con nosotros.</p>
+        <p>Es importante revisar las normas del servidor antes de comenzar.</p>
+        <p>Para quienes quieran saber el estado del servidor o nuevas cosas que se van a implementar en el mismo, pasaros por el canal de anuncios en el servidor de discord.</p>
+        <p>¡Gracias por unirte!</p>
+      `;
+      document.getElementById('overlay').style.display = 'block';
+    });
+
+    // Evento de clic para el botón "Descargas"
+    document.getElementById('btnDescargas').addEventListener('click', function () {
+      // Define los nombres y tipos de archivo
+      var archivos = [
+        { nombre: 'mods.zip', tipo: 'zip' },
+        { nombre: 'normativa.pdf', tipo: 'pdf' }
+      ];
+
+      // Ruta donde se almacenan las descargas en el servidor
+      var rutaDescarga = 'descargas/';
+
+      // Genera el contenido HTML para el overlay con los enlaces de descarga
+      var contenido = '<h2>Descarga de Archivos</h2>';
+      contenido += '<ul>';
+
+      archivos.forEach(function (archivo) {
+        var icono;
+        if (archivo.tipo === 'zip' || archivo.tipo === 'rar') {
+          icono = '📦';
+        } else if (archivo.tipo === 'pdf') {
+          icono = '📄';
+        }
+        contenido += `
+          <li>
+            ${icono}
+            <a href="${rutaDescarga}${archivo.nombre}" download class="download-link">${archivo.nombre}</a>
+          </li>
+        `;
+      });
+
+      contenido += '</ul>';
+
+      // Actualiza el contenido del overlayContent y muestra el overlay
+      document.getElementById('overlayContent').innerHTML = contenido;
+      document.getElementById('overlay').style.display = 'block';
+    });
+
+    // Evento de clic para el botón "Discord del Servidor"
+    document.getElementById('btnDiscord').addEventListener('click', function () {
+      // Contenido HTML para el overlay
+      var contenido = `
+        <h2>Servidor de Discord</h2>
+        <a href="https://discord.gg/vrxzKkx2sY" target="_blank">Unirse al servidor de Pichompolis</a>
+      `;
+
+      // Actualiza el contenido del overlayContent y muestra el overlay
+      document.getElementById('overlayContent').innerHTML = contenido;
+      document.getElementById('overlay').style.display = 'block';
+    });
+
+    // Evento de clic para el botón "Normas del Servidor"
+    document.getElementById('btnNormas').addEventListener('click', function () {
+      // Contenido HTML para el overlay
+      var contenido = `
+        <h2>Normas del Servidor</h2>
+        <ul class="list-group">
+          <li class="list-group-item">Norma 1: No hacer trampa</li>
+          <li class="list-group-item">Norma 2: Respetar a los demás jugadores</li>
+          <li class="list-group-item">Norma 3: No usar lenguaje ofensivo</li>
+          <li class="list-group-item">Norma 4: No hacer spam</li>
+          <li class="list-group-item">Norma 5: Seguir las indicaciones de los moderadores</li>
+        </ul>
+      `;
+
+      // Actualiza el contenido del overlayContent y muestra el overlay
+      document.getElementById('overlayContent').innerHTML = contenido;
+      document.getElementById('overlay').style.display = 'block';
+    });
+
+    // Eventos para reproducir sonido al hacer hover sobre los elementos
+    document.getElementById('btnInicio').addEventListener('mouseenter', function () {
+      playSound();
+    });
+    document.getElementById('btnIP').addEventListener('mouseenter', function () {
+      playSound();
+    });
+    document.getElementById('btnDescargas').addEventListener('mouseenter', function () {
+      playSound();
+    });
+
+    document.getElementById('btnDiscord').addEventListener('mouseenter', function () {
+      playSound();
+    });
+
+    document.getElementById('btnNormas').addEventListener('mouseenter', function () {
+      playSound();
+    });
+
+    // Evento para detener el sonido al salir del hover sobre los elementos
+    document.querySelectorAll('.arriba, .abajo').forEach(item => {
+      item.addEventListener('mouseleave', function () {
+        var sound = document.getElementById('sound');
+        sound.pause();
+        sound.currentTime = 0;
+      });
+    });
+
+  </script>
+</body>
+
+</html>
