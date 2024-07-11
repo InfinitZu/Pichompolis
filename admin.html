@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Message</title>
+</head>
+<body>
+    <h1>Actualizar Mensaje Administrativo</h1>
+    <form id="messageForm">
+        <label for="adminMessage">Mensaje:</label>
+        <input type="text" id="adminMessage" name="adminMessage" required>
+        <button type="submit">Actualizar</button>
+    </form>
 
+    <script>
+        document.getElementById('messageForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const adminMessage = document.getElementById('adminMessage').value;
+
+            fetch('/update-message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ adminMessage: adminMessage }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Mensaje actualizado correctamente.');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Hubo un error al actualizar el mensaje.');
+            });
+        });
+    </script>
+</body>
+</html>
