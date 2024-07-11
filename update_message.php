@@ -1,36 +1,36 @@
 <?php
-// Habilitar la visualización de errores para depuración (quitar en producción)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// Permitir acceso desde cualquier origen (CORS)
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json");
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Obtiene los datos de la solicitud POST
-    $data = json_decode(file_get_contents('php://input'), true);
+// Si el método de la solicitud no es POST, retornar un error
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405); // Método no permitido
+    echo json_encode(['message' => 'Método no permitido']);
+    exit;
+}
 
-    // Verifica si el mensaje del administrador está presente en los datos
-    if (isset($data['adminMessage'])) {
-        // Prepara el contenido para el archivo JSON
-        $newContent = json_encode(['adminMessage' => $data['adminMessage']]);
+// Obtener datos del cuerpo de la solicitud POST
+$data = json_decode(file_get_contents('php://input'), true);
 
-        // Ruta completa al archivo message.json
-        $filePath = 'message.json';
+// Verificar si se recibió el mensaje del administrador
+if (!isset($data['adminMessage'])) {
+    http_response_code(400); // Solicitud incorrecta
+    echo json_encode(['message' => 'Mensaje del administrador no proporcionado']);
+    exit;
+}
 
-        // Verificar si el archivo existe y es escribible
-        if (is_writable($filePath)) {
-            // Intenta escribir el nuevo contenido en el archivo JSON
-            if (file_put_contents($filePath, $newContent)) {
-                echo json_encode(['message' => 'Mensaje actualizado correctamente']);
-            } else {
-                echo json_encode(['message' => 'Error al escribir en el archivo message.json']);
-            }
-        } else {
-            echo json_encode(['message' => 'El archivo message.json no es escribible o no existe']);
-        }
-    } else {
-        echo json_encode(['message' => 'Mensaje del administrador no proporcionado']);
-    }
+// Preparar el nuevo contenido para el archivo JSON
+$newContent = json_encode(['adminMessage' => $data['adminMessage']]);
+
+// Ruta al archivo message.json (ajusta la ruta según tu configuración)
+$filePath = 'message.json';
+
+// Intentar escribir el nuevo contenido en el archivo JSON
+if (file_put_contents($filePath, $newContent)) {
+    echo json_encode(['message' => 'Mensaje actualizado correctamente']);
 } else {
-    echo json_encode(['message' => 'Solicitud no válida']);
+    http_response_code(500); // Error interno del servidor
+    echo json_encode(['message' => 'Error al escribir en el archivo message.json']);
 }
 ?>
