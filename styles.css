@@ -157,7 +157,7 @@ body {
 }
 @media (max-width: 768px) {
   .menu-container {
-    width: 90%; /* Ajusta el ancho para dispositivos móviles */
+    width: 50%; /* Ajusta el ancho para dispositivos móviles */
     height: auto; /* Ajusta la altura para móviles */
   }
 
