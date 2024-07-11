@@ -1,149 +1,151 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* Evita el desplazamiento vertical */
-}
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita el desplazamiento vertical */
+  }
+  
+  .img {
+    width: 150px; /* Tamaño deseado para la imagen */
+    height: auto; /* Autoajustar altura según el ancho */
+    border-radius: 50%; /* Hace que los bordes sean redondeados (forma de círculo) */
+    overflow: hidden; /* Asegura que la imagen redonda no se salga del área definida */
+    position: absolute; /* Posiciona la imagen de forma absoluta */
+    top: 20px; /* Distancia desde el borde superior */
+    left: 50%; /* Centra la imagen horizontalmente */
+    transform: translateX(-50%); /* Corrige la posición centrada */
+  }
+  
+  .img img {
+    width: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+  }
+  
 
-.img {
-  width: 150px; /* Tamaño deseado para la imagen */
-  height: auto; /* Autoajustar altura según el ancho */
-  border-radius: 50%; /* Hace que los bordes sean redondeados (forma de círculo) */
-  overflow: hidden; /* Asegura que la imagen redonda no se salga del área definida */
-  position: absolute; /* Posiciona la imagen de forma absoluta */
-  top: 20px; /* Distancia desde el borde superior */
-  left: 50%; /* Centra la imagen horizontalmente */
-  transform: translateX(-50%); /* Corrige la posición centrada */
-}
+  .menu {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    width: 100%;
+    height: 100vh; /* altura total de la pantalla */
+    background-color: #44013b; /* Color de fondo para todo el menú */
+  }
+  
+  .menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #63014a; /* Color de fondo para el contenedor principal */
+    padding: 20px; /* Aumentado el padding para mayor espacio alrededor */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 50%; /* Ancho del contenedor principal */
+    height: 50%;
+    
+    /* Añadir sombra y borde */
+    box-shadow: 8px 8px 10px rgba(255,208,0, 0.7); /* Sombra blanca */
+  }
+  
+  .menu-container img {
+    width: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+    border-radius: 50%; /* Hace que los bordes sean redondeados (forma de círculo) */
+  }
 
-.img img {
-  width: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
-  display: block; /* Elimina el espacio adicional debajo de la imagen */
-}
+  .inicio {
+    width: 250px; /* Tamaño deseado para la imagen */
+    height: 250px; /* Ajusta la altura para mantener la proporción */
+    text-align: center;
+    padding: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 5px; /* Bordes redondeados */
+    margin-left: 25%;
+    position: relative; /* Añadido para establecer contexto de posición */
+    overflow: hidden; /* Asegura que la imagen redondeada no se salga del área definida */
+    transform: translateX(-50%); /* Corrige la posición centrada */
 
-.menu {
-  display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  width: 100%;
-  height: 100vh; /* altura total de la pantalla */
-  background-color: #44013b; /* Color de fondo para todo el menú */
-}
+  }
+  
+  .inicio img {
+    width: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+    border-radius: 50%; /* Hace que los bordes sean redondeados (forma de círculo) */
+    transition: transform 0.3s ease; /* Transición suave para la transformación */
+  }
+  
+  .inicio:hover img {
+    transform: scale(2.0); /* Aumenta el tamaño de la imagen al 120% */
+  }
+  
+  .derecha {
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* Ancho del contenedor de los botones de la derecha */
+  }
+  
+  .arriba, .abajo {
+    padding: 10px;
+    margin-right: 20px; /* Ajusta el margen izquierdo para mover los botones hacia la izquierda */
+    text-align: center;
+    color: rgba(68, 1, 59, 1);
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #ffd000; /* Color de fondo para los botones */
+    margin-bottom: 10px; /* Espacio entre los botones */
+    border-radius: 5px; /* Bordes redondeados */
+    position: relative; /* Añadido para establecer contexto de posición */
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    transition: transform 0.3s ease; /* Transición suave para la transformación */
+  }
+  .arriba:hover, .abajo:hover {
+    transform: scale(1.2); /* Aumenta el tamaño del botón al 120% en el hover */
+  }
+  
+  /* Estilos para la superposición negra transparente */
+  .overlay {
+    color: white;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(68,1,59, 0.9); /* Fondo negro transparente */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  }
+  
+  .overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #63014a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    width: 80%; /* Ancho del contenido */
+    max-width: 600px; /* Ancho máximo */
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #e74c3c; /* Color de fondo rojo */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .close-icon {
+    font-weight: bold; /* Texto en negrita */
+    color: white; /* Color del texto */
+  }
 
-.menu-container {
-  display: flex;
-  flex-direction: column; /* Cambia a dirección columna en pantallas pequeñas */
-  justify-content: center;
-  align-items: center;
-  background-color: #63014a; /* Color de fondo para el contenedor principal */
-  padding: 20px; /* Aumentado el padding para mayor espacio alrededor */
-  border-radius: 10px; /* Bordes redondeados */
-  width: 80%; /* Ancho del contenedor principal */
-  max-width: 600px; /* Ancho máximo */
-  height: auto; /* Altura automática */
-  box-shadow: 8px 8px 10px rgba(255, 208, 0, 0.7); /* Sombra blanca */
-}
-
-.menu-container img {
-  width: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
-  display: block; /* Elimina el espacio adicional debajo de la imagen */
-  border-radius: 50%; /* Hace que los bordes sean redondeados (forma de círculo) */
-}
-
-.inicio {
-  width: 100%; /* Ancho completo en pantallas pequeñas */
-  height: auto; /* Ajusta la altura para mantener la proporción */
-  text-align: center;
-  padding: 10px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  border-radius: 5px; /* Bordes redondeados */
-  margin-left: 0; /* Sin margen izquierdo en pantallas pequeñas */
-  position: relative; /* Añadido para establecer contexto de posición */
-  overflow: hidden; /* Asegura que la imagen redondeada no se salga del área definida */
-  transform: translateX(-50%); /* Corrige la posición centrada */
-}
-
-.inicio img {
-  width: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
-  display: block; /* Elimina el espacio adicional debajo de la imagen */
-  border-radius: 50%; /* Hace que los bordes sean redondeados (forma de círculo) */
-  transition: transform 0.3s ease; /* Transición suave para la transformación */
-}
-
-.inicio:hover img {
-  transform: scale(2.0); /* Aumenta el tamaño de la imagen al 120% */
-}
-
-.derecha {
-  display: flex;
-  flex-direction: column;
-  width: 100%; /* Ancho completo en pantallas pequeñas */
-}
-
-.arriba, .abajo {
-  padding: 10px;
-  text-align: center;
-  font-size: 20px; /* Tamaño de fuente reducido */
-  color: rgba(68, 1, 59, 1);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  background-color: #ffd000; /* Color de fondo para los botones */
-  margin-bottom: 10px; /* Espacio entre los botones */
-  border-radius: 5px; /* Bordes redondeados */
-  overflow: hidden; /* Asegura que el contenido no se desborde */
-  transition: transform 0.3s ease; /* Transición suave para la transformación */
-  width: 100%; /* Ancho completo en pantallas pequeñas */
-}
-
-.arriba:hover, .abajo:hover {
-  transform: scale(1.2); /* Aumenta el tamaño del botón al 120% en el hover */
-}
-
-/* Estilos para la superposición negra transparente */
-.overlay {
-  color: white;
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(68, 1, 59, 0.9); /* Fondo negro transparente */
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-}
-
-.overlay-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #63014a;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
-  width: 80%; /* Ancho del contenido */
-  max-width: 600px; /* Ancho máximo */
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 10px;
-  background-color: #e74c3c; /* Color de fondo rojo */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.close-icon {
-  font-weight: bold; /* Texto en negrita */
-  color: white; /* Color del texto */
-}
-
-/* Nuevo estilo para los enlaces de descarga */
+  /* Nuevo estilo para los enlaces de descarga */
 .download-link {
   font-family: Arial, Helvetica, sans-serif;
   color: white; /* Color del texto */
@@ -152,20 +154,4 @@ body {
 
 .download-link:hover {
   text-decoration: underline; /* Subrayado al pasar el ratón */
-}
-
-@media only screen and (max-width: 768px) {
-  /* Estilos para pantallas más pequeñas */
-  .menu-container {
-    width: 90%; /* Ancho ajustable */
-    padding: 10px; /* Menos padding en pantallas pequeñas */
-  }
-
-  .arriba, .abajo {
-    font-size: 16px; /* Tamaño de fuente aún más reducido */
-  }
-
-  .inicio {
-    padding: 5px; /* Menos padding en pantallas pequeñas */
-  }
 }
