@@ -155,3 +155,18 @@ body {
 .download-link:hover {
   text-decoration: underline; /* Subrayado al pasar el ratón */
 }
+@media (max-width: 768px) {
+  .menu-container {
+    width: 90%; /* Ajusta el ancho para dispositivos móviles */
+    height: auto; /* Ajusta la altura para móviles */
+  }
+
+  .inicio {
+    width: 150px; /* Tamaño ajustado para móviles */
+    height: 150px; /* Ajusta la altura para mantener la proporción */
+  }
+
+  .arriba, .abajo {
+    font-size: 18px; /* Ajusta el tamaño del texto para móviles */
+  }
+}
