@@ -158,14 +158,14 @@ body {
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
   .menu-container {
-    width: 40%; /* Ajusta el ancho para dispositivos móviles */
+    width: 90%; /* Ajusta el ancho para dispositivos móviles */
     height: auto; /* Ajusta la altura para móviles */
   }
 
   .inicio {
     width: 220px; /* Tamaño ajustado para móviles */
     height: 220px; /* Ajusta la altura para mantener la proporción */
-    transform: translateX(-50%); /* Corrige la posición centrada */
+    padding-top: 100px;
   }
 
   .arriba, .abajo {
