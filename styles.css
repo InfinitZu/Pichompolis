@@ -177,7 +177,7 @@ body {
   .inicio {
     width: 120px; /* Tamaño ajustado para móviles */
     height: 120px; /* Ajusta la altura para mantener la proporción */
-    margin-top: 20px; /* Ajuste la distancia desde el borde superior */
+    margin-top: 10px; /* Ajuste la distancia desde el borde superior */
     transform: translateX(0); /* Corrección de la posición centrada */
     margin-left: auto; /* Centrando automáticamente */
     margin-right: auto; /* Centrando automáticamente */
