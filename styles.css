@@ -175,11 +175,10 @@ body {
       font-family: Arial, Helvetica, sans-serif;
     }
   .inicio {
-    width: 220px; /* Tamaño ajustado para móviles */
-    height: 220px; /* Ajusta la altura para mantener la proporción */
+    width: 120px; /* Tamaño ajustado para móviles */
+    height: 120px; /* Ajusta la altura para mantener la proporción */
     position: absolute; /* Posiciona la imagen de forma absoluta */
     top: 50px; /* Distancia desde el borde superior */
-    left: 50%; /* Centra la imagen horizontalmente */
   }
 
   .arriba, .abajo {
