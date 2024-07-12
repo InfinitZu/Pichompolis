@@ -168,7 +168,7 @@ body {
     height: auto;
     }
     .admin h1 {
-    font-size: 10px;
+    font-size: 14px;
       color: #ffd000;
       text-align: center;
       font-weight: bold;
@@ -177,9 +177,12 @@ body {
   .inicio {
     width: 220px; /* Tamaño ajustado para móviles */
     height: 220px; /* Ajusta la altura para mantener la proporción */
+    position: absolute; /* Posiciona la imagen de forma absoluta */
+    top: 20px; /* Distancia desde el borde superior */
+    left: 50%; /* Centra la imagen horizontalmente */
   }
 
   .arriba, .abajo {
-    font-size: 18px; /* Ajusta el tamaño del texto para móviles */
+    font-size: 14px; /* Ajusta el tamaño del texto para móviles */
   }
 }
