@@ -178,7 +178,7 @@ body {
     width: 220px; /* Tamaño ajustado para móviles */
     height: 220px; /* Ajusta la altura para mantener la proporción */
     position: absolute; /* Posiciona la imagen de forma absoluta */
-    top: 20px; /* Distancia desde el borde superior */
+    top: 50px; /* Distancia desde el borde superior */
     left: 50%; /* Centra la imagen horizontalmente */
   }
 
