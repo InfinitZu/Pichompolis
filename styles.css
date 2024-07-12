@@ -177,8 +177,6 @@ body {
   .inicio {
     width: 120px; /* Tamaño ajustado para móviles */
     height: 120px; /* Ajusta la altura para mantener la proporción */
-    position: absolute; /* Posiciona la imagen de forma absoluta */
-    top: 500px; /* Distancia desde el borde superior */
   }
 
   .arriba, .abajo {
