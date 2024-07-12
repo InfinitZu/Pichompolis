@@ -164,14 +164,8 @@ body {
   }
 
 .admin {
-      background-color: #63014a;
       width: 20%;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      border-bottom-right-radius: 25px;
-      border-bottom-left-radius: 25px;
+    height: auto;
     }
     .admin h1 {
     font-size: 10px;
