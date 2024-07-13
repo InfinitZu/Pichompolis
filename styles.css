@@ -137,6 +137,7 @@ body {
     background-color: #e74c3c; /* Color de fondo rojo */
     border: none;
     cursor: pointer;
+    border-bottom-left-radius: 25%;
   }
   
   .close-icon {
