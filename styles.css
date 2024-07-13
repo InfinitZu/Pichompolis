@@ -185,6 +185,6 @@ body {
 
   .arriba, .abajo {
     font-size: 14px; /* Ajusta el tamaño del texto para móviles */
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, sans-serif;
     color: white;
 }
