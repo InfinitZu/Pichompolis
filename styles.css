@@ -185,7 +185,7 @@ body {
 
   .arriba, .abajo {
     font-size: 18px; /* Ajusta el tamaño del texto para móviles */
-    font-family: Impact, Haettenschweiler, sans-serif;
+    font-family: 'Impact', 'Arial Black', 'Helvetica Inserat', 'Arial Narrow Bold', sans-serif;
     color: #44013b;
     font-weight: bold;
 text-align: center;
